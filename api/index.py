@@ -18,6 +18,7 @@ def pdf():
         print(title, pdf_url)
         pdf_resp = requests.get(pdf_url, headers={'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.54'})
         pdf_resp_content = pdf_resp.content
+        print(pdf_resp_content)
         pdf_doc = fitz.Document(stream=pdf_resp_content, filetype="pdf")
         pdf_text = ''
         for i in range(pdf_doc.page_count):
